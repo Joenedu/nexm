@@ -9,7 +9,7 @@ var routes = require('./public/controller/routes');
 app.disable('etag');
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(compression());
+//app.use(compression());
 app.use(helmet());
 app.use(helmet.referrerPolicy({
     policy: ['no-referrer',
