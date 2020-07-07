@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/markdown.css">
+</head>
+
+<body>
+    <main class="content">
+        <div class="w3-row w3-content">
+            <div class="w3-col l12 m12">
+
+                <ul>
+                    <% if(typeof emptyField !== 'undefined'){ %>
+                    <li style="color: red"><%= emptyField %></li>
+                    <% } %>
+                    <% if(typeof mdusers !== 'undefined'){ %>
+                        <% for(key in mdusers){ %>
+                        <% for(field in mdusers[key]){ %>
+                            <li><%= field.toUpperCase()+': '+mdusers[key][field] %></li>
+                        <% } %>
+                    <% } %>
+                        <% } %>
+
+                </ul>
+                <div class="w3-bar">
+                    <button class="w3-bar-item w3-button tablink w3-white"
+                        onclick="openTab(event,'markdownInputDiv')">Text</button>
+                    <button class="w3-bar-item w3-button tablink"
+                        onclick="openTab(event,'markdownPreviewDiv')">Preview</button>
+                </div>
+                <form method="POST">
+                    <div id="markdownInputDiv" class="markdownEditor">
+                        <div class="w3-row">
+                            <div class="w3-col l6 m6">
+                                <textarea oninput="convertToHTML()" name="markdownInput" id="markdownInput"></textarea>
+                            </div>
+                            <div class="w3-col l6 m6">
+                                <div id="markdownPreview">
+                                    &nbsp;
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="markdownPreviewDiv" class="markdownEditor" style="display:none">
+                        <div id="markdownPreviewTab">
+                            &nbsp;
+                        </div>
+                    </div>
+                    <p>
+                    <div class="w3-row w3-content">
+                        <div class="w3-col l2 m2">
+                            <button class="w3-button w3-white">GO</button>
+                        </div>
+                        <div class="w3-col l2 m2">&nbsp;</div>
+                        <div class="w3-col l3 m3">&nbsp;</div>
+                        <div class="w3-col l5 m5">
+                            <div class="w3-row w3-content">
+                            <div class="w3-col" class="w3-col" style="width:49%">
+                                <input type="text" placeholder="Custom edit code" class="w3-input" name="customEditCode">
+                            </div>
+                            <div class="w3-col" style="width:2%">&nbsp;</div>
+                            <div class="w3-col" style="width:49%">
+                                <input type="text" placeholder="Custom edit url" class="w3-input" name="customUrl">
+                            </div>
+                        </div>
+                        </div>
+                        
+                        
+                    </div>
+                    </p>
+                </form>
+            </div>
+
+        </div>
+        <p>
+
+        </p>
+    </main>
+    <footer>
+        <p class="w3-center w3-small"><a href="/" class="w3-link w3-text-blue">new</a></p>
+        <p class="w3-center w3-small">Markdown Editor &copy; <%= new Date().getFullYear() %></p>
+    </footer>
+
+    <script src="js/showdown.min.js"></script>
+    <script src="js/markdownconverter.js"></script>
+</body>
+
+</html>

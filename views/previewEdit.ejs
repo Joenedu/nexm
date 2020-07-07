@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/markdown.css">
+</head>
+
+<body>
+    <main class="content">
+        <div class="w3-row w3-content">
+            <div class="w3-col l12 m12">
+                <% if(typeof queryResult !== 'undefined'){ %>
+                    <p><% var result = queryResult[0] %></p>
+                    <% } %> 
+                
+                <ul>
+                    <% if(typeof queryResult !== 'undefined'){ %>
+                    <li style="color: green"> Your edit code: <%= result.edit_code %></li>
+                    <% } %> 
+                                   
+                </ul>
+
+                    <div id="markdownPreviewEdit">
+                        <% if(typeof queryResult !== 'undefined'){ %>
+                            <%= markDown %>
+                            <% } %> 
+                            
+                    </div>
+
+                <div class="w3-row w3-content">
+                    <div class="w3-col l2 m2">
+                        <% if(typeof queryResult !== 'undefined'){ %>
+                        <a href="<%= result.url+'/edit' %>" class="link">Edit</a>
+                        <% } %>
+                    </div>
+                </div>
+            </div> 
+
+        </div>
+
+    </main>
+    <footer>
+        <p class="w3-center w3-center">Markdown Editor &copy; <%= new Date().getFullYear() %></p>
+    </footer>
+    <script src="js/showdown.min.js"></script>
+    <script src="js/markdownconverter.js"></script>
+
+
+   
+</body>
+
+</html>

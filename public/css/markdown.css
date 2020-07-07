@@ -1,0 +1,55 @@
+html, body{
+    height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(235, 235, 235);
+    /*background-color: rgb(230, 230, 230);*/
+}
+.content{
+    flex: 1 0 auto;
+}
+footer{
+    flex-shrink: 0;
+}
+textarea, #markdownPreview{
+    /*width: 50%;
+    float: left;*/
+    width: 100%;
+    height: 412px;
+    border: none;
+    padding: 21px;
+    background-color: #fff;
+    
+}
+#markdownPreview{
+    /*text-align: center;*/
+    border-left: 1px solid lightgrey;
+    overflow-y: scroll;
+}
+#markdownInput{
+    font-weight: bolder;
+}
+#markdownPreviewTab, #markdownPreviewEdit{
+    width: 100%;
+    height: 412px;
+    border: none;
+    padding: 21px;
+    background-color: #fff;
+    overflow-y: scroll;
+}
+p{
+    margin: 7px;
+}
+ul{
+   margin-top: 7px;
+   margin-bottom: 7px;
+   padding-left: 30px;
+}
+
+/* public/style.css */
+
+html, body, section, .full-height {
+    height: 100%;
+} 

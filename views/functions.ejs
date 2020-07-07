@@ -1,0 +1,22 @@
+<!--<%
+
+markDownToHTML = (input)=>{
+    converter = new showdown.Converter({
+        simplifiedAutoLink: true,
+        simpleLineBreaks: true,
+        parseImgDimensions: true,
+        smoothLivePreview: true,
+        completeHTMLDocument: true,
+        omitExtraWLInCodeBlocks: true,
+        strikethrough: true,
+        tables: true,
+        tasklists: true,
+        smartIndentationFix: true,
+    }),
+    
+    html = converter.makeHtml(input);   
+    document.getElementById('markdownPreviewEdit').innerHTML = html;
+}
+
+%>
+-->
